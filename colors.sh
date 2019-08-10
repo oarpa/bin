@@ -4,7 +4,7 @@
 #
 # #!/bin/bash
 # source /path/to/colors.sh
-# echo -e "${RED}${BLINK}test$RESET"
+# echo -e "${FG_RED}${BLINK}test$RESET"
 #
 #FORMATTING
 export BOLD='\e[1m'
