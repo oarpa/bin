@@ -1,0 +1,58 @@
+    Create a key
+    gpg --full-generate-key
+    
+    Create a revocation certificate
+    gpg --output revocation_cert_filename.asc --gen-revoke email@addressofkey.com
+    
+    Decrypt a message - leave out filename.gpg if you want to paste the cleartext encrypted message
+    gpg --output decrypted_filename.txt --decrypt encrypted_filename.gpg
+    
+    Encrypt a message - leave out --output filename.gpg if you want to get a cleartext encrypted phrase to paste
+    gpg --output output-filename.gpg --encrypt --sign --armor --recipient destination_email@address.com -recipient mypublickey@emailaddress.com text_to_encrypt.txt
+    #or to just send a message without the need for signing and verification:
+    gpg -o output-filename.gpg -r recipient@email.address.com --encrypt --armor text_to_encrypt.txt
+    
+    Export your public key
+    gpg --armor --output filename.gpg --export email@addressofkey.com
+    
+    Export your private key ONLY FOR EMERGENCY BACKUP - import just like a public key
+    gpg --export-secret-keys long-key-id > backup-filename.asc
+    
+    Get the long key ID of a key
+    gpg --keyid-format long --list-keys email@addressofkey.com
+    
+    Import a key to keyring
+    gpg --import filename.gpg
+    
+    List your public keyring
+    gpg --list-keys
+    
+    Receive a public key from a key server using key ID
+    gpg --recv-keys key-id
+    
+    Send a public key to a key server using long key ID
+    gpg --send-keys key-id-long-format
+    
+    Sign a file - encrypts the file and signs
+    gpg --sign filename
+    
+    Sign a file with ASCII output
+    gpg --clearsign filename
+    
+    Sign a file detached - just generates a signature
+    gpg --detached-sig filename
+    
+    Sign a file detached with ASCII output
+    gpg --armor --detached-sig filename
+    
+    Sign a recently imported key to validate authenticity - verify fingerprint first!
+    gpg --sign-key email@addressofkey.com
+    
+    Verify a detached signature
+    gpg --verify filename.sig filename
+    
+    Verify a signed file
+    gpg --verify filename.gpg
+    
+    Verify the key's fingerprint
+    gpg --fingerprint filename.gpg
